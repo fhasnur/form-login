@@ -1,6 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-function Login() {
+const Login = () => {
+  const[username, setUsername] = useState('');
+  const[password, setPassword] = useState('');
+
+  const onChangeUsername = (e) => {
+    const value = e.target.value;
+    setUsername(value);
+  }
+
+  const onChangePassword = (e) => {
+    const value = e.target.value;
+    setPassword(value);
+  }
+
 	return (
 		<div style={{marginTop:"200px"}}>
 			<div className="container">
@@ -10,11 +23,11 @@ function Login() {
 							<div className="card-body">
 								<div className="form-group">
 									<label>Username</label>
-									<input type="text" placeholder="Username" className="form-control mb-3" />
+									<input type="text" placeholder="Username" className="form-control mb-3" value={username} onChange={onChangeUsername} />
 								</div>
 								<div className="form-group">
 									<label>Password</label>
-									<input type="password" placeholder="Password" className="form-control mb-3" />
+									<input type="password" placeholder="Password" className="form-control mb-3" value={password} onChange={onChangePassword} />
 								</div>
 								<button className="btn btn-primary">Login</button>
 							</div>
